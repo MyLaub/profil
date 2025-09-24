@@ -1,0 +1,130 @@
+.intro_container {
+  position: relative;
+  margin: 0 0 4rem; /* afstand ned til “My Laub” */
+  padding-bottom: 12rem; /* så næste sektion ikke rammer billedet */
+}
+.intro_container h1 {
+  font-weight: 500;
+  font-size: 4rem;
+  margin: 0;
+}
+
+.profil_container {
+  position: relative;
+  display: grid;
+
+  grid-template-columns: 8.75rem 1fr 24rem; /* 140px, fleksibel tekst, fast billede */
+  column-gap: 2rem;
+  row-gap: 1.5rem;
+  margin: 4rem 0 4rem;
+}
+
+.profil_container h2 {
+  margin: 0;
+  /* font-size: clamp(1.5rem, 1.6vw, 2rem); */
+  font-size: 1.5rem;
+}
+
+/* .profil_img {
+  width: 100%;
+  object-fit: cover;
+  display: block;
+  background: #e6e6e6;
+  transform: translateY(-19rem);
+  position: relative;
+  z-index: -1;
+} */
+
+.profil_img {
+  width: 100%;
+  object-fit: cover;
+  display: block;
+  background: #e6e6e6;
+  position: relative;
+  top: -19rem;
+  z-index: -1;
+  height: 28rem;
+  object-fit: cover;
+  display: block;
+  top: -19rem;
+}
+
+.profil_container p {
+  margin: 0;
+  max-width: 45ch;
+  line-height: 1.4;
+}
+
+/* ── Responsiv adfærd ────────────────────────────────────────── */
+@media (max-width: 960px) {
+  .profil_container {
+    grid-template-columns: 1fr; /* stack */
+    padding-right: 0;
+  }
+  .profil_container::after {
+    position: static; /* grå boks under teksten */
+    width: 100%;
+    height: 160px;
+    margin-top: 16px;
+  }
+}
+
+.intro_container {
+  position: relative;
+  margin: 0 0 4rem; /* afstand ned til “My Laub” */
+  padding-bottom: 12rem; /* så næste sektion ikke rammer billedet */
+}
+.intro_container h1 {
+  font-weight: 500;
+  font-size: 4rem;
+  margin: 0;
+}
+
+.profil_container {
+  position: relative;
+  display: grid;
+
+  grid-template-columns: 8.75rem 1fr 24rem; /* 140px, fleksibel tekst, fast billede */
+  column-gap: 2rem;
+  row-gap: 1.5rem;
+  margin: 4rem 0 4rem;
+}
+
+.profil_container h2 {
+  margin: 0;
+
+  font-size: 1.5rem;
+}
+
+.profil_img {
+  width: 100%;
+  object-fit: cover;
+  display: block;
+  background: #e6e6e6;
+  position: relative;
+  z-index: -1;
+  height: 28rem;
+  object-fit: cover;
+  display: block;
+  top: -14rem;
+}
+
+.profil_container p {
+  margin: 0;
+  max-width: 45ch;
+  line-height: 1.4;
+}
+
+/* ── Responsiv adfærd ────────────────────────────────────────── */
+@media (max-width: 960px) {
+  .profil_container {
+    grid-template-columns: 1fr; /* stack */
+    padding-right: 0;
+  }
+  .profil_container::after {
+    position: static; /* grå boks under teksten */
+    width: 100%;
+    height: 160px;
+    margin-top: 16px;
+  }
+}

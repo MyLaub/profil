@@ -10,18 +10,46 @@
       rel="stylesheet"
     />
   </head>
+
   <body>
+    <header class="site-header">
+      <div class="header-inner">
+        <a class="brand" href="#top">My Laub</a>
+
+        <!-- tomme midterkolonner for looket -->
+        <div aria-hidden="true"></div>
+        <div aria-hidden="true"></div>
+
+        <nav aria-label="Primær navigation">
+          <ul class="nav-list">
+            <li>
+              <p><a href="#profil">Profil,</a></p>
+            </li>
+            <li>
+              <p><a href="#cv">CV,</a></p>
+            </li>
+            <li>
+              <p><a href="#kontakt">Kontakt</a></p>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
     <main>
       <section class="intro_container">
-        <h1>Jeg er multimediedesign-studerende med speciale i frontend-udvikling, hvor jeg omsætter kreative idéer til funktionelle løsninger.</h1>
+        <div>
+          <h1>Jeg er multimediedesign-studerende med speciale i frontend-udvikling, hvor jeg omsætter kreative idéer til funktionelle løsninger.</h1>
+        </div>
+        <div class="profil_container">
+          <h2>Profil</h2>
+          <p>
+            Med baggrund i den kreative branche har jeg erfaring med fotografi, branding og digital kommunikation. <br />Jeg har opdaget, at jeg trives i det strukturerede, logiske og teknisk udfordrende. <br />Mit mål er at blive frontend-udvikler
+            med blik for design og æstetik, men med koden som mit primære værktøj. <br />Jeg ønsker at udvikle mit fundament og mine kompetencer i et miljø, hvor form og funktion går hånd i hånd.
+          </p>
+          <img class="profil_img" src="img/portraet_dummy.jpg" alt="Portræt af My Laub" />
+        </div>
       </section>
-      <div class="profil_container">
-        <h2>Profil</h2>
-        <p>
-          Med baggrund i den kreative branche har jeg erfaring med fotografi, branding og digital kommunikation. Jeg har opdaget, at jeg trives i det strukturerede, logiske og teknisk udfordrende. Mit mål er at blive frontend-udvikler med blik for
-          design og æstetik, men med koden som mit primære værktøj. Jeg ønsker at udvikle mit fundament og mine kompetencer i et miljø, hvor funktion og form går hånd i hånd.
-        </p>
-      </div>
 
       <section class="cv_navn">
         <h2>My Laub</h2>
@@ -46,8 +74,12 @@
               <p>2019</p>
             </li>
           </ul>
-          <h3>Interesser</h3>
+          <h3>Om</h3>
           <ul>
+            <li>
+              <p>27 år</p>
+              <p>Østerbro</p>
+            </li>
             <li>
               <p>Kunst, fotografi og film. <br />Passioneret frivilligarbejder i Ungdommens Røde Kors, med fokus på miljøterapi for psykisk og fysisk syge børn.</p>
             </li>
@@ -65,13 +97,21 @@
               <p>2022 – 2024</p>
             </li>
             <li>
-              <h4>Creative &amp; PR Specialist</h4>
+              <h4>Creative & PR Specialist</h4>
               <p class="virksomhed">Social Works APS</p>
               <p>
                 Ansvarlig for foto- og videoproduktion, inkl. retouch og klipning. <br />
                 Idéudvikling, kampagner og kreative pitches for kunder. <br />Håndtering af international PR samt projektledelse og art direction af Social Works Magazine.
               </p>
               <p>Feb. 2021 – Apr. 2022</p>
+            </li>
+            <li>
+              <h4>Stillfotograf & produktionsassistent</h4>
+              <p class="virksomhed">
+                Killingerne, kortfilm (2021)<br />
+                Tiden fordriver os, kortfilm (2021)
+              </p>
+              <p>2020</p>
             </li>
             <li>
               <h4>Forfatter, illustrator &amp; foredragsholder</h4>
@@ -117,6 +157,28 @@
         </div>
       </section>
 
+      <section class="anbefalinger">
+        <div>
+          <h2 class="anbefalinger-title">Reference</h2>
+        </div>
+
+        <div>
+          <ul class="anb-list">
+            <li>
+              <p>For reference er du velkommen til at kontakte Nina Shini, CEO & co-founder hos Social Works.</p>
+              <p><a href="mailto:nina@social-works.com">Nina@social-works.com</a></p>
+              <p><a href="tel:+4528305473">+45 2830 5473</a></p>
+            </li>
+
+            <li>
+              <p><a class="pdf-link" href="pdf/My_anbefaling_urk_mjoelnerparken.pdf" target="_blank" rel="noopener"> Anbefaling fra URK</a></p>
+            </li>
+            <li>
+              <p><a class="pdf-link" href="pdf/My-anbefaling-urk-valmueen.pdf" target="_blank" rel="noopener"> Anbefaling fra URK PCB</a></p>
+            </li>
+          </ul>
+        </div>
+      </section>
       <section class="kontakt">
         <h2>Kontakt</h2>
         <address class="kontakt_info">
