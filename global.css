@@ -1,7 +1,13 @@
 /* Fonter */
+
 @import url("https://fonts.googleapis.com/css2?family=Gabarito:wght@400..900&family=Hachi+Maru+Pop&family=Hanken+Grotesk:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap");
 
 @import url("https://fonts.googleapis.com/css2?family=Gabarito:wght@400..900&family=Hachi+Maru+Pop&family=Hanken+Grotesk:ital,wght@0,100..900;1,100..900&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap");
+
+main {
+  max-width: 1200px;
+  margin-inline: auto;
+}
 
 h1,
 h2,
@@ -11,16 +17,20 @@ h4 {
 }
 
 h2 {
+  font-size: 6rem;
   font-weight: 400;
   font-style: normal;
 }
 
 h3 {
-  font-weight: 400;
+  /* font-size: 1.4; */
+  font-size: 1.5rem;
+  font-weight: 500;
   font-style: normal;
 }
 
 h4 {
+  font-size: 1.1rem;
   font-weight: 400;
   font-style: normal;
 }
@@ -36,10 +46,75 @@ p {
 
 /* Fonter slut */
 
+/* Introduktion */
+.intro_container h1 {
+  font-weight: 500;
+  font-size: 4rem;
+  margin: 0;
+}
+
+/* ── PROFIL-BLOK: label venstre, tekst midt, grå boks højre ──── */
+.profil_container {
+  position: relative;
+  display: grid;
+  grid-template-columns: 140px 1fr; /* "Profil" + tekstkolonne */
+  /* gap: 20px 0px; */
+  align-items: start;
+
+  /* gør plads til den grå boks til højre */
+  /* padding-right: clamp(180px, 30%, 420px); */
+  margin-block: 5rem 10rem;
+}
+
+.profil_container h2 {
+  margin: 0;
+  /* font-size: clamp(1.5rem, 1.6vw, 2rem); */
+  font-size: 1.5rem;
+}
+
+.profil_container p {
+  margin: 0;
+  max-width: 45ch;
+  line-height: 1.4;
+}
+
+/* den grå “billed”-blok til højre */
+.profil_container::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: clamp(220px, 36%, 500px);
+  height: clamp(180px, 28vw, 360px);
+  background: #e6e6e6;
+}
+
+/* ── Responsiv adfærd ────────────────────────────────────────── */
+@media (max-width: 960px) {
+  .profil_container {
+    grid-template-columns: 1fr; /* stack */
+    padding-right: 0;
+  }
+  .profil_container::after {
+    position: static; /* grå boks under teksten */
+    width: 100%;
+    height: 160px;
+    margin-top: 16px;
+  }
+}
+
+/* Introduktion */
+
+/* CV spalter, fonter og spacing */
+
+.cv_navn h2 {
+  margin: 0 0 1.2rem;
+}
+
 .cv_container {
   display: grid;
-  grid-template-columns: 2fr 2fr 3fr;
-  gap: 4rem;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 10rem;
 }
 
 .cv_container ul {
@@ -48,11 +123,6 @@ p {
   margin: 0;
 }
 
-.cv_container ul {
-  margin: 0;
-  padding: 0;
-  list-style: none;
-}
 .cv_container li {
   margin: 0 0 0.4rem;
 }
@@ -60,6 +130,84 @@ p {
   margin: 0;
   line-height: 1.25;
 }
+
 .cv_container h4 {
-  margin: 0 0 0.4rem;
+  margin: 0;
+  line-height: 1.2;
+  margin: 0 0 0.35rem;
+}
+
+.cv_container li p {
+  margin: 0 0 0.35rem;
+  line-height: 1.35;
+}
+
+.cv_container h4 + p {
+  margin-top: 0.15rem;
+}
+
+.cv_container .virksomhed {
+  margin-top: 0.15rem;
+  font-style: italic;
+}
+
+.cv_container ul > li + li {
+  margin-top: 1rem;
+}
+
+.cv_container h3 {
+  margin: 0;
+}
+
+.cv_container > div > h3:first-of-type {
+  margin-bottom: 1.3rem;
+}
+
+.cv_container > div > h3:not(:first-of-type) {
+  margin: 1.6rem 0 0.8rem;
+}
+
+/* CV spalter */
+
+.kontakt {
+  border-top: 1px solid #cfcfcf; /* linjen */
+  margin-top: 3rem;
+  padding-top: 1.5rem;
+
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* titel venstre, info højre */
+  align-items: start;
+  gap: 2rem;
+}
+
+.kontakt h2 {
+  margin: 0;
+}
+
+.kontakt_info {
+  margin: 0;
+  font-style: normal; /* address skal ikke være kursiv */
+}
+
+.kontakt_info p {
+  margin: 0 0 0.5rem;
+  font-size: 1.25rem;
+  line-height: 1.5;
+}
+
+.kontakt a {
+  color: inherit;
+  text-decoration: none;
+}
+.kontakt a:hover {
+  text-decoration: underline;
+}
+
+@media (max-width: 720px) {
+  .kontakt {
+    grid-template-columns: 1fr;
+  }
+  .kontakt h2 {
+    margin-bottom: 0.75rem;
+  }
 }
