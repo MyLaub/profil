@@ -184,3 +184,128 @@ main {
   max-width: 1200px;
   margin-inline: auto;
 }
+
+/*  */
+
+.cv_navn {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 10rem;
+  align-items: start;
+}
+
+.cv_navn h2 {
+  margin: 0 0 1.2rem;
+  white-space: nowrap;
+}
+
+.navn {
+  grid-column: span 2;
+}
+
+.kontakt {
+  align-items: start;
+  grid-column: 3/4;
+}
+
+.cv_navn p {
+  margin: 0 0 0.5rem;
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+.cv_navn a {
+  color: inherit;
+  text-decoration: none;
+}
+.cv_navn a:hover {
+  text-decoration: underline;
+}
+
+.cv_container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 10rem;
+}
+
+.cv_container ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.cv_container li {
+  margin: 0 0 0.4rem;
+}
+.cv_container li p {
+  margin: 0;
+  line-height: 1.25;
+}
+
+.cv_container h4 {
+  margin: 0;
+  line-height: 1.2;
+  margin: 0 0 0.35rem;
+}
+
+.cv_container li p {
+  margin: 0 0 0.35rem;
+  line-height: 1.35;
+}
+
+.cv_container h4 + p {
+  margin-top: 0.15rem;
+}
+
+.cv_container .virksomhed {
+  margin-top: 0.15rem;
+  font-style: italic;
+}
+
+.cv_container ul > li + li {
+  margin-top: 1rem;
+}
+
+.cv_container h3 {
+  margin: 0;
+}
+
+.cv_container > div > h3:first-of-type {
+  margin-bottom: 1.3rem;
+}
+
+.cv_container > div > h3:not(:first-of-type) {
+  margin: 1.6rem 0 0.8rem;
+}
+
+.kontakt h2 {
+  margin: 0;
+}
+
+.kontakt_info {
+  margin: 0;
+  font-style: normal;
+}
+
+.kontakt_info p {
+  margin: 0 0 0.5rem;
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+.kontakt a {
+  color: inherit;
+  text-decoration: none;
+}
+.kontakt a:hover {
+  text-decoration: underline;
+}
+
+@media (max-width: 720px) {
+  .kontakt {
+    grid-template-columns: 1fr;
+  }
+  .kontakt h2 {
+    margin-bottom: 0.75rem;
+  }
+}
