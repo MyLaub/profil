@@ -38,6 +38,7 @@
 }
 
 main {
+  container-type: inline-size;
   max-width: 1200px;
   margin-inline: auto;
 
@@ -207,11 +208,11 @@ main {
       }
     }
   }
+}
 
-  @container cv (width >= 900px) {
-    .cv_container {
-      grid-template-columns: 1fr 1fr 1fr;
-      column-gap: var(--cv-gap);
-    }
+@container (width >= 900px) {
+  .cv_container {
+    grid-template-columns: 1fr 1fr 1fr;
+    column-gap: var(--cv-gap);
   }
 }
