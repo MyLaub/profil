@@ -83,31 +83,64 @@ main {
   container-type: inline-size;
   display: grid;
   grid-template-columns: 1fr;
-  gap: var(--space-l);
-  align-items: start;
-  padding: 1rem;
+  /* grid-template-rows: auto auto auto auto; */
+  /* gap: var(--space-m); */
+  align-content: start;
+  padding-inline: 1rem;
 
-  .profil_tekst {
-    display: grid;
-    gap: 0.75rem;
-    grid-template-columns: 1fr;
+  h1 {
+    font-size: var(--font-3);
+  }
 
-    .profil_img {
-      inline-size: 100%;
-      max-inline-size: 320px;
-      block-size: auto;
-      object-fit: cover;
-      justify-self: start;
-    }
+  > :first-child {
+    grid-column: 1;
+    grid-row: 1;
+    z-index: 1;
+  }
+
+  .profil_container {
+    display: contents;
+  }
+
+  .profil_container > h2 {
+    grid-column: 1;
+    grid-row: 2;
+
+    align-self: start;
+  }
+
+  .profil_container > p {
+    grid-column: 1;
+    grid-row: 3;
+
+    align-self: start;
+  }
+
+  .profil_container > .profil_img {
+    grid-column: 1;
+    grid-row: 4;
+    inline-size: 50%;
+    max-inline-size: none;
+    aspect-ratio: 4 / 5;
+    block-size: auto;
+    object-fit: cover;
+    object-position: 50% 20%;
+    justify-self: stretch;
+    align-self: start;
+    margin-block-start: 0;
+    transform: none;
   }
 }
 
 @container (width >= 820px) {
   .intro_container {
     display: grid;
-    grid-template-columns: max-content 1fr 320px;
-    grid-template-rows: 1fr 7fr;
-    gap: clamp(1rem, 2vw, 2rem);
+
+    grid-template-columns: max-content 1fr 1fr;
+
+    grid-template-rows: auto auto;
+
+    gap: var(--space-m);
     position: relative;
 
     > :first-child {
@@ -144,8 +177,9 @@ main {
       inline-size: min(100%, 22rem);
       aspect-ratio: 4 / 5;
       object-fit: cover;
-      /* object-position: 50% 0; */
-      transform: translateY(-207px);
+
+      transform: none;
+      margin-block-start: -225px;
     }
   }
 }
@@ -154,8 +188,8 @@ main {
   container-type: inline-size;
   display: grid;
   grid-template-columns: 1fr;
-  row-gap: var(--space-2xl);
-  column-gap: var(--space-2xl);
+  row-gap: var(--space-l);
+  column-gap: var(--space-l);
   padding-inline: 1rem;
 
   h2 {
@@ -183,6 +217,7 @@ main {
   > div {
     h3 {
       margin: 0;
+      padding-block-end: 1rem;
       gap: var(--space-m);
     }
     ul {
@@ -197,7 +232,7 @@ main {
         gap: 0.25rem;
         h4 {
           margin: 0;
-          font-weight: 600;
+          font-weight: 400;
         }
         p {
           margin: 0;
@@ -210,9 +245,154 @@ main {
   }
 }
 
-@container (width >= 900px) {
+@container (width >= 820px) {
   .cv_container {
-    grid-template-columns: 1fr 1fr 1fr;
-    column-gap: var(--cv-gap);
+    display: grid;
+    /* grid-template-columns: repeat(3, 1fr); */
+    grid-template-columns: repeat(3, fit-content(36ch));
+    justify-content: space-between;
+    grid-template-rows: repeat(2, auto);
+    column-gap: var(--space-m);
+    row-gap: var(--space-m);
+
+    .navn {
+      grid-column: 1;
+      grid-row: 1;
+      align-self: center;
+      padding: 0;
+      margin: 0;
+    }
+    .kontakt {
+      grid-column: 2 / span 2;
+      align-self: center;
+    }
   }
 }
+
+.anbefalinger {
+  border-top: 1px solid #cfcfcf;
+  margin-top: 3rem;
+  padding-top: 4rem;
+  margin-bottom: 8rem;
+  padding-inline: 1rem;
+
+  /* mobil: én kolonne */
+  display: grid;
+  grid-template-columns: 1fr;
+
+  .anbefalinger-title {
+    font-size: var(--font-5);
+    align-self: start;
+    margin: 0; /* fjern default margin så venstre kant matcher */
+  }
+
+  .anb-list {
+    list-style: none;
+    padding-left: 0;
+    margin: 0; /* ingen ekstra indrykning */
+    align-self: start;
+  }
+  .anb-list p {
+    margin: 0 0 0.5rem;
+    line-height: 1.5;
+  }
+  .anb-list a {
+    color: inherit;
+    text-decoration: none;
+  }
+  .anb-list a:hover {
+    text-decoration: underline;
+  }
+  .anb-list li:nth-child(2) {
+    margin-top: 2rem;
+  }
+
+  .pdf-link {
+    text-decoration: none;
+    color: inherit;
+  }
+  .pdf-link:hover {
+    text-decoration: underline;
+  }
+  .pdf-link::after {
+    content: " ↗";
+  }
+}
+
+/* Desktop: brug de samme kolonner som resten af layoutet */
+@container (width >= 820px) {
+  .anbefalinger {
+    /* arver kolonnerne fra parent-grid'et (fx main: max-content 1fr 1fr) */
+    grid-template-columns: subgrid;
+    grid-column: 1 / -1;
+    column-gap: var(--space-m);
+  }
+
+  /* gør wrappers "gennemsigtige", så h2 og ul kan placeres direkte i sporene */
+  .anbefalinger > div {
+    display: contents;
+  }
+
+  /* h2 i første spor, ul i andet spor → venstrekanter flugter med samme grid-linje */
+  .anbefalinger-title {
+    grid-column: 1;
+  }
+  .anb-list {
+    grid-column: 2;
+  }
+}
+
+/* .anbefalinger {
+  border-top: 1px solid #cfcfcf;
+  margin-top: 3rem;
+  padding-top: 4rem;
+  margin-bottom: 8rem;
+  display: grid;
+  grid-template-columns: 1fr;
+
+  .anbefalinger-title {
+    font-size: var(--font-5);
+    align-self: start;
+  }
+  .anb-list {
+    list-style: none;
+    padding-left: 0;
+    margin: 0;
+    align-self: start;
+  }
+  .anb-list p {
+    margin: 0 0 0.5rem;
+    line-height: 1.5;
+  }
+  .anb-list a {
+    color: inherit;
+    text-decoration: none;
+  }
+  .anb-list a:hover {
+    text-decoration: underline;
+  }
+  .anbefalinger .anb-list {
+    margin-top: 2rem;
+  }
+  .anb-list li:nth-child(2) {
+    margin-top: 2rem;
+  }
+
+  .pdf-link {
+    text-decoration: none;
+    color: inherit;
+  }
+  .pdf-link:hover {
+    text-decoration: underline;
+  }
+  .pdf-link::after {
+    content: " ↗";
+  }
+}
+
+@container (width >= 820px) {
+  .anbefalinger {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+} */
