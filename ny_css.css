@@ -143,6 +143,10 @@ main {
     gap: var(--space-m);
     position: relative;
 
+    h1 {
+      font-size: var(--font-5);
+    }
+
     > :first-child {
       grid-column: 1 / 4;
       grid-row: 1;
@@ -179,7 +183,7 @@ main {
       object-fit: cover;
 
       transform: none;
-      margin-block-start: -150px;
+      margin-block-start: -225px;
     }
   }
 }
@@ -191,6 +195,7 @@ main {
   row-gap: var(--space-l);
   column-gap: var(--space-l);
   padding-inline: 1rem;
+  margin-top: 0;
 
   h2 {
     font-size: var(--font-5);
@@ -200,6 +205,7 @@ main {
   }
 
   .kontakt {
+    margin-top: -20px;
     .kontakt_info {
       font-style: normal;
       p {
@@ -255,6 +261,7 @@ main {
     grid-template-rows: repeat(2, auto);
     column-gap: var(--space-m);
     row-gap: var(--space-m);
+    margin-top: 2rem;
 
     .navn {
       grid-column: 1;
@@ -266,6 +273,7 @@ main {
     .kontakt {
       grid-column: 2 / span 2;
       align-self: center;
+      margin-top: 0;
     }
   }
 }
