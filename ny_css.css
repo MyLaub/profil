@@ -179,7 +179,7 @@ main {
       object-fit: cover;
 
       transform: none;
-      margin-block-start: -225px;
+      margin-block-start: -150px;
     }
   }
 }
@@ -196,6 +196,7 @@ main {
     font-size: var(--font-5);
     line-height: 1.125;
     font-weight: 400;
+    margin-bottom: 0;
   }
 
   .kontakt {
